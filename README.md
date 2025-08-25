@@ -1,46 +1,52 @@
-# 🖼️ Steganography Tool  
+# 🖼️ Steganography Tool for Image/File Hiding  
 
-![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
-![Platform](https://img.shields.io/badge/Platform-ParrotOS-green?logo=linux)
-![GUI](https://img.shields.io/badge/GUI-Tkinter-orange)
+## Overview  
+This project focuses on hiding and extracting secret messages inside images using **Least Significant Bit (LSB) steganography**.  
+It ensures secure communication by embedding text (and later small files) into **lossless images (PNG/BMP)** without visible distortion.  
 
----
-
-## 📌 About  
-The **Steganography Tool** allows you to securely hide and extract secret messages (or small files) inside images using **Least Significant Bit (LSB) steganography**.  
-It supports **PNG** and **BMP** formats, ensuring no visible loss in image quality.  
+The tool is built in **Python** with **Pillow, Stepic, and Tkinter**, and tested in **Parrot OS terminal**.  
 
 ---
 
-## ✨ Features  
-- 🔐 Hide text inside images (LSB method).  
-- 📂 Extract hidden messages from encoded images.  
-- 🖼️ Supports **PNG & BMP** formats.  
-- 🖥️ GUI with drag-and-drop (Tkinter).  
-- ⚡ Simple and lightweight.  
+## Steps Performed  
+
+1. ✅ Set up Python environment and installed required libraries (`Pillow`, `stepic`, `tkinter`).  
+2. ✅ Implemented backend functions to:  
+   - Hide secret messages inside images.  
+   - Extract hidden messages back from encoded images.  
+3. ✅ Tested with PNG/BMP formats for accuracy.  
+4. ✅ Verified successful embedding and extraction in Parrot OS.  
 
 ---
 
-## ⚙️ Installation  
+## Risks of Using Insecure Formats  
 
-```bash
-# Clone this repository
-git clone https://github.com/your-username/steganography-tool.git
-cd steganography-tool
+- ❌ **JPEG compression** can corrupt hidden data.  
+- ❌ Using **low-quality images** may cause noticeable changes after encoding.  
+- ❌ Large message sizes may **increase image file size significantly**.  
 
-# Install dependencies
-pip install pillow stepic
+---
 
-Conclusion
+## 📸 Illustrations  
 
-✅ Successfully built and tested backend encoding/decoding functions.
-✅ Messages were hidden and extracted securely without quality loss.
-✅ Next phase will focus on:
+- 🖼️ **Original Image** → `input.png`  
+- 🖼️ **Encoded Image with hidden message** → `output.png`  
+- 📝 **Decoded Output** → `"Hello from Parrot OS!"`  
 
-Adding Tkinter GUI with drag-and-drop.
+---
 
-Supporting optional encryption before embedding.
+## Conclusion  
 
-Extending support for file hiding.
+✅ Successfully built and tested backend encoding/decoding functions.  
+✅ Messages were hidden and extracted securely without quality loss.  
+✅ Next phase will focus on:  
+- Adding **Tkinter GUI with drag-and-drop**.  
+- Supporting **optional encryption** before embedding.  
+- Extending support for **file hiding**.  
 
-👨‍💻 Author: Harisha Mahadevappa
+---
+
+👨‍💻 **Author:** Harisha Mahadevappa  
+
+
+
