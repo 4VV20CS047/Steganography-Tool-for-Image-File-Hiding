@@ -1,86 +1,69 @@
 # 🔒 Steganography Tool – Project Explanation  
 
 ## 📌 What is Steganography?  
-Steganography is the technique of **hiding secret information inside a normal file (like an image, audio, or video)** in such a way that no one can detect the presence of hidden data.  
-Unlike cryptography (which scrambles data), steganography **conceals the existence of data itself**.  
+**Steganography** is the technique of **hiding secret information inside a normal file (like an image, audio, or video)** in such a way that no one can detect the presence of hidden data.  
+Unlike **cryptography** (which scrambles data), **steganography conceals the existence of data itself**.  
 
-In this project, we use **Image Steganography** with the **Least Significant Bit (LSB) method**.  
+👉 In this project, we use **Image Steganography** with the **Least Significant Bit (LSB) method**.  
 
 ---
 
 ## 🎯 Project Goal  
 The goal of this project is to build a **Python-based tool** that allows:  
 
-- **Encoding (hiding)** secret text messages inside images.  
-- **Decoding (extracting)** hidden messages from stego-images.  
+✔️ **Encoding (hiding)** secret text messages inside images.  
+✔️ **Decoding (extracting)** hidden messages from stego-images.  
 
-This ensures secure communication without raising suspicion, since the output looks like a normal image.  
+✅ This ensures **secure communication without raising suspicion**, since the output looks like a normal image.  
 
 ---
 
 ## ⚙️ How It Works  
 
-### 🔐 Encoding Process:  
+### 🔐 Encoding Process  
 1. Take an **input image** (PNG/BMP, lossless format).  
 2. Take a **secret text message** from the user.  
-3. Convert the message into binary form.  
-4. Hide message bits inside the **least significant bits of image pixels**.  
+3. Convert the message into **binary form**.  
+4. Hide message bits inside the **Least Significant Bits (LSB)** of image pixels.  
 
    **Example:**  
    - Pixel value: `10101100`  
    - Secret bit: `1`  
    - New pixel: `10101101`  
 
-   The visual change is **invisible to the human eye**.  
+   🎨 The visual change is **invisible to the human eye**.  
 
 5. Save the new image as **output.png** (stego-image).  
 
 ---
 
-### 🔓 Decoding Process:  
+### 🔓 Decoding Process  
 1. Load the **stego-image (output.png)**.  
-2. Extract the **least significant bits** of pixel values.  
+2. Extract the **Least Significant Bits** of pixel values.  
 3. Reconstruct the hidden binary message.  
-4. Convert it back to human-readable text.  
+4. Convert it back to **human-readable text**.  
 
 ---
 
 ## 🖥️ Features of the Tool  
-- Supports both **CLI (Command Line Interface)** and **GUI (Tkinter)**.  
-- Built with **Pillow** (image handling) and **Stepic** (steganography functions).  
-- Works on **Linux, Windows, and MacOS**.  
-- Simple **GUI buttons** for Encode and Decode.  
-- Output images look exactly like the original (**no visible distortion**).  
+✨ Supports both **CLI (Command Line Interface)** and **GUI (Tkinter)**  
+✨ Built with **Pillow** (image handling) and **Stepic** (steganography functions)  
+✨ Works on **Linux, Windows, and MacOS**  
+✨ Simple **GUI buttons** for Encode and Decode  
+✨ Output images look **exactly like the original** (no visible distortion)  
 
 ---
 
 ## 📂 Technologies Used  
-- **Python 3** → Main programming language  
-- **Pillow** → For image manipulation  
-- **Stepic** → For LSB steganography  
-- **Tkinter** → GUI design  
-- **Parrot OS Terminal** → Testing environment  
+| Technology | Purpose |
+|------------|---------|
+| **Python 3** | Main programming language |
+| **Pillow** | Image manipulation |
+| **Stepic** | LSB steganography |
+| **Tkinter** | GUI design |
+| **Parrot OS** | Testing environment |
 
 ---
 
 ## 📸 Example Workflow  
-1. User opens GUI and enters message:  
-   `"This is a secret message!"`  
-2. Tool hides it inside **input.png** → produces **output.png**.  
-3. When decoding **output.png**, tool extracts the same hidden message.  
-
----
-
-## 🚀 Applications  
-- Secure communication in sensitive environments.  
-- Watermarking digital media.  
-- Protecting confidential files.  
-- Educational use in cybersecurity projects.  
-
----
-
-## 🎯 Limitations  
-- Only works well with **lossless formats (PNG, BMP)**.  
-- Message size depends on the **image resolution**.  
-- Does not include **encryption** (can be added in future).  
-
+1️⃣ User opens GUI and enters message:  
