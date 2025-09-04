@@ -1,50 +1,90 @@
-# 🖼️ Steganography Tool for Image/File Hiding  
+# 🔒 Steganography Tool – Project Explanation  
 
-## Overview  
-This project focuses on hiding and extracting secret messages inside images using **Least Significant Bit (LSB) steganography**.  
-It ensures secure communication by embedding text (and later small files) into **lossless images (PNG/BMP)** without visible distortion.  
+## 📌 What is Steganography?  
+**Steganography** is the technique of **hiding secret information inside a normal file (like an image, audio, or video)** in such a way that no one can detect the presence of hidden data.  
+Unlike **cryptography** (which scrambles data), **steganography conceals the existence of data itself**.  
 
-The tool is built in **Python** with **Pillow, Stepic, and Tkinter**, and tested in **Parrot OS terminal**.  
-
----
-
-## Steps Performed  
-
-1. ✅ Set up Python environment and installed required libraries (`Pillow`, `stepic`, `tkinter`).  
-2. ✅ Implemented backend functions to:  
-   - Hide secret messages inside images.  
-   - Extract hidden messages back from encoded images.  
-3. ✅ Tested with PNG/BMP formats for accuracy.  
-4. ✅ Verified successful embedding and extraction in Parrot OS.  
+👉 In this project, we use **Image Steganography** with the **Least Significant Bit (LSB) method**.  
 
 ---
 
-## Risks of Using Insecure Formats  
+## 🎯 Project Goal  
+The goal of this project is to build a **Python-based tool** that allows:  
 
-- ❌ **JPEG compression** can corrupt hidden data.  
-- ❌ Using **low-quality images** may cause noticeable changes after encoding.  
-- ❌ Large message sizes may **increase image file size significantly**.  
+✔️ **Encoding (hiding)** secret text messages inside images.  
+✔️ **Decoding (extracting)** hidden messages from stego-images.  
 
----
-
-## 📸 Illustrations  
-
-- 🖼️ **Original Image** → `input.png`  
-- 🖼️ **Encoded Image with hidden message** → `output.png`  
-- 📝 **Decoded Output** → `"Hello from Parrot OS!"`  
+✅ This ensures **secure communication without raising suspicion**, since the output looks like a normal image.  
 
 ---
 
-## Conclusion  
+## ⚙️ How It Works  
 
-✅ Successfully built and tested backend encoding/decoding functions.  
-✅ Messages were hidden and extracted securely without quality loss.  
-✅ Next phase will focus on:  
-- Adding **Tkinter GUI with drag-and-drop**.  
-- Supporting **optional encryption** before embedding.  
-- Extending support for **file hiding**.  
+### 🔐 Encoding Process  
+1. Take an **input image** (PNG/BMP, lossless format).  
+2. Take a **secret text message** from the user.  
+3. Convert the message into **binary form**.  
+4. Hide message bits inside the **Least Significant Bits (LSB)** of image pixels.  
+
+   **Example:**  
+   - Pixel value: `10101100`  
+   - Secret bit: `1`  
+   - New pixel: `10101101`  
+
+   🎨 The visual change is **invisible to the human eye**.  
+
+5. Save the new image as **output.png** (stego-image).  
 
 ---
+
+### 🔓 Decoding Process  
+1. Load the **stego-image (output.png)**.  
+2. Extract the **Least Significant Bits** of pixel values.  
+3. Reconstruct the hidden binary message.  
+4. Convert it back to **human-readable text**.  
+
+---
+
+## 🖥️ Features of the Tool  
+✨ Supports both **CLI (Command Line Interface)** and **GUI (Tkinter)**  
+✨ Built with **Pillow** (image handling) and **Stepic** (steganography functions)  
+✨ Works on **Linux, Windows, and MacOS**  
+✨ Simple **GUI buttons** for Encode and Decode  
+✨ Output images look **exactly like the original** (no visible distortion)  
+
+---
+
+## 📂 Technologies Used  
+| Technology | Purpose |
+|------------|---------|
+| **Python 3** | Main programming language |
+| **Pillow** | Image manipulation |
+| **Stepic** | LSB steganography |
+| **Tkinter** | GUI design |
+| **Parrot OS** | Testing environment |
+
+---
+
+## 📸 Example Workflow  
+1️⃣ User opens GUI and enters message:  
+2️⃣ Tool hides it inside **input.png** → produces **output.png**.  
+3️⃣ When decoding **output.png**, tool extracts the **same hidden message**.  
+
+---
+
+## 🚀 Applications  
+- 🔐 **Secure communication** in sensitive environments  
+- 🖼️ **Watermarking digital media**  
+- 📁 **Protecting confidential files**  
+- 🎓 **Educational use** in cybersecurity projects  
+
+---
+
+## 🎯 Limitations  
+⚠️ Only works well with **lossless formats (PNG, BMP)**  
+⚠️ Message size depends on the **image resolution**  
+⚠️ Does not include **encryption** (can be added in future)  
+
 
 👨‍💻 **Author:** Harisha Mahadevappa  
 
