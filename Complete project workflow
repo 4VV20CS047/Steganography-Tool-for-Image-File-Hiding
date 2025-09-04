@@ -1,0 +1,101 @@
+🔒 Steganography Tool – Project Explanation
+📌 What is Steganography?
+
+Steganography is the technique of hiding secret information inside a normal file (like an image, audio, or video) in such a way that no one can detect the presence of hidden data.
+Unlike cryptography (which scrambles data), steganography conceals the existence of data itself.
+
+In this project, we use Image Steganography with the Least Significant Bit (LSB) method.
+
+🎯 Project Goal
+
+The goal of this project is to build a Python-based tool that allows:
+
+Encoding (hiding) secret text messages inside images.
+
+Decoding (extracting) hidden messages from stego-images.
+
+This ensures secure communication without raising suspicion, since the output looks like a normal image.
+
+⚙️ How It Works
+🔐 Encoding Process:
+
+Take an input image (PNG/BMP, lossless format).
+
+Take a secret text message from the user.
+
+Convert the message into binary form.
+
+Hide message bits inside the least significant bits of image pixels.
+
+Example:
+
+Pixel value: 10101100
+
+Secret bit: 1
+
+New pixel: 10101101
+
+The visual change is invisible to the human eye.
+
+Save the new image as output.png (stego-image).
+
+🔓 Decoding Process:
+
+Load the stego-image (output.png).
+
+Extract the least significant bits of pixel values.
+
+Reconstruct the hidden binary message.
+
+Convert it back to human-readable text.
+
+🖥️ Features of the Tool
+
+Supports both CLI (Command Line Interface) and GUI (Tkinter).
+
+Built with Pillow (image handling) and Stepic (steganography functions).
+
+Works on Linux, Windows, and MacOS.
+
+Simple GUI buttons for Encode and Decode.
+
+Output images look exactly like the original (no visible distortion).
+
+📂 Technologies Used
+
+Python 3 → Main programming language
+
+Pillow → For image manipulation
+
+Stepic → For LSB steganography
+
+Tkinter → GUI design
+
+Parrot OS Terminal → Testing environment
+
+📸 Example Workflow
+
+User opens GUI and enters message:
+"This is a secret message!"
+
+Tool hides it inside input.png → produces output.png.
+
+When decoding output.png, tool extracts the same hidden message.
+
+🚀 Applications
+
+Secure communication in sensitive environments.
+
+Watermarking digital media.
+
+Protecting confidential files.
+
+Educational use in cybersecurity projects.
+
+🎯 Limitations
+
+Only works well with lossless formats (PNG, BMP).
+
+Message size depends on the image resolution.
+
+Does not include encryption (can be added in future).
