@@ -1,1 +1,104 @@
+🔹 steg_tool.py (CLI Version)
+from PIL import Image
+import stepic
+import sys
+
+def encode_message(input_image, output_image, message):
+    img = Image.open(input_image)
+    encoded_img = stepic.encode(img, message.encode())
+    encoded_img.save(output_image, 'PNG')
+    print(f"Message encoded successfully into {output_image}")
+
+def decode_message(stego_image):
+    img = Image.open(stego_image)
+    decoded_message = stepic.decode(img)
+    print("Decoded Message:", decoded_message.decode())
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage:")
+        print("  Encode: python3 steg_tool.py encode input.png output.png 'your message'")
+        print("  Decode: python3 steg_tool.py decode output.png")
+        sys.exit(1)
+
+    command = sys.argv[1].lower()
+
+    if command == "encode" and len(sys.argv) == 5:
+        encode_message(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif command == "decode" and len(sys.argv) == 3:
+        decode_message(sys.argv[2])
+    else:
+        print("Invalid arguments.")
+
+
+
+🔹 steg_gui.py (GUI Version)
+import tkinter as tk
+from tkinter import filedialog, messagebox
+from PIL import Image
+import stepic
+
+def encode_message():
+    try:
+        input_file = filedialog.askopenfilename(title="Select Input Image", filetypes=[("PNG files", "*.png")])
+        if not input_file:
+            return
+
+        secret_msg = text_box.get("1.0", tk.END).strip()
+        if not secret_msg:
+            messagebox.showwarning("Warning", "Please enter a secret message!")
+            return
+
+        img = Image.open(input_file)
+        encoded_img = stepic.encode(img, secret_msg.encode())
+
+        output_file = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
+        if not output_file:
+            return
+
+        encoded_img.save(output_file, 'PNG')
+        messagebox.showinfo("Success", f"Message encoded into {output_file}")
+
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
+
+def decode_message():
+    try:
+        stego_file = filedialog.askopenfilename(title="Select Stego Image", filetypes=[("PNG files", "*.png")])
+        if not stego_file:
+            return
+
+        img = Image.open(stego_file)
+        decoded_msg = stepic.decode(img)
+        text_box.delete("1.0", tk.END)
+        text_box.insert(tk.END, decoded_msg.decode())
+
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
+
+# GUI setup
+root = tk.Tk()
+root.title("🔒 Steganography Tool (Encode/Decode)")
+root.geometry("500x400")
+
+label = tk.Label(root, text="Enter Secret Message:", font=("Arial", 12))
+label.pack(pady=10)
+
+text_box = tk.Text(root, height=10, width=50)
+text_box.pack(pady=10)
+
+encode_btn = tk.Button(root, text="Encode Message", command=encode_message, bg="lightgreen", font=("Arial", 12))
+encode_btn.pack(pady=5)
+
+decode_btn = tk.Button(root, text="Decode Message", command=decode_message, bg="lightblue", font=("Arial", 12))
+decode_btn.pack(pady=5)
+
+root.mainloop()
+
+
+📄 requirements.txt
+pillow
+stepic
+tk
+
 
