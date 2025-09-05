@@ -72,6 +72,21 @@ The goal of this project is to build a **Python-based tool** that allows:
 
 ---
 
+## 📸 Screenshots  
+
+### GUI Main Window
+
+![Main Window](main%20window.png)
+
+### Encoding Example
+![Encoded Message](Encoded%20message.png)
+
+### Decoding Example
+![Decoded Message](Decoded%20message.png)
+
+### Terminal Execution
+![Terminal Screenshot](Terminal%20screenshot%201.png)
+
 ## 🚀 Applications  
 - 🔐 **Secure communication** in sensitive environments  
 - 🖼️ **Watermarking digital media**  
