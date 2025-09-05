@@ -100,6 +100,11 @@ The goal of this project is to build a **Python-based tool** that allows:
 ⚠️ Message size depends on the **image resolution**  
 ⚠️ Does not include **encryption** (can be added in future)  
 
+📜 License
+
+This project is licensed under the MIT License - see the LICENSE
+ file for details.
+
 
 👨‍💻 **Author:** Harisha Mahadevappa  
 
