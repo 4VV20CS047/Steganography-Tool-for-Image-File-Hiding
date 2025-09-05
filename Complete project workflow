@@ -97,8 +97,10 @@ root.mainloop()
 
 
 📄 requirements.txt
-pillow
-stepic
-tk
+pip install -r requirements.txt
+
+Run the tool 
+python steg_tool.py
+
 
 
